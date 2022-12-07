@@ -6,13 +6,15 @@
 }
 
 body {
-    background-color: #7fffd4;
+    /* background-color: #7fffd4; */
+    background-image: url(../img/wallpaper.jpg);
+    background-size: 100vw 100vh;    background-repeat: no-repeat;
 }
 
 nav {
     padding: 1rem;
-    background-color: white;
     display: flex;
+    color: white;
 }
 
 .diff, #difficulty {
@@ -24,7 +26,7 @@ nav {
 }
 
 .col_grid {
-    background-color: white;
+    background-color: #ffffff30;
     width: 500px;
     height: 500px;
     position: relative;
@@ -65,7 +67,7 @@ nav {
 }
 
 .clicked {
-    background-color: rgb(0, 255, 255);
+    background-color: rgb(16, 66, 182);
 }
 
 .red {
@@ -108,3 +110,6 @@ nav {
     color: green;
 }
 
+.score_container {
+    color: white;
+}
