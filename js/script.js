@@ -29,13 +29,24 @@ playButton.addEventListener ('click', function(){
     let bombs = arrayBomb(1, max)
     console.log(bombs)
 
+    let gameOver = document.getElementById ('game_over_container')
+
+    gameOver.classList.remove('active')
+    gameOver.classList.add('inactive')
+
+    grid.classList.remove('event-none')
+
     for (let i = 0; i < max; i++) {
         const square = createGridSquare()
         grid.appendChild(square)
         square.addEventListener ('click', function(){
             if (bombs.includes(i+1)) {
                 this.classList.add ('red')
+                grid.classList.add('event-none')
                 console.log("Hai cliccato una bomba")
+                gameOver.classList.remove('inactive')
+                gameOver.classList.add('active')
+                
             }
             else {
                 this.classList.add ('clicked')
