@@ -8,14 +8,18 @@ body {
     background-color: #7fffd4;
 }
 
-.container {
+.col_grid {
     background-color: white;
     width: 500px;
     height: 500px;
-    margin: 2.5rem auto;
+    position: relative;
 }
 
-.row, .col, #game_over_container {
+.row {
+    margin: 2.5rem 0;
+}
+
+.row, #grid, #game_over_container, #win_container {
     width: 100%;
     height: 100%;
 }
@@ -68,17 +72,23 @@ body {
 }
 
 .grid_row {
-    position: relative;
+    display: flex;
+    justify-content: space-around;
 }
 
-#game_over_container {
+#game_over_container, #win_container {
     align-items: center;
     justify-content: center;
     position: absolute;
 }
 
-#game_over_text {
+#game_over_text, #win_text {
     font-size: 3rem;
     font-weight: 900;
     color: red;
 }
+
+#win_text {
+    color: green;
+}
+

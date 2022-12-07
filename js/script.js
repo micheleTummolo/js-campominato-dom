@@ -30,12 +30,20 @@ playButton.addEventListener ('click', function(){
     console.log(bombs)
 
     let gameOver = document.getElementById ('game_over_container')
+    let win = document.getElementById('win_container')
 
     gameOver.classList.remove('active')
     gameOver.classList.add('inactive')
 
+    win.classList.add('inactive')
+    win.classList.remove('active')
+
     grid.classList.remove('event-none')
 
+    let counter = 0;
+    let score = document.getElementById('score')
+    score.innerHTML = ("Score: " + counter)
+    
     for (let i = 0; i < max; i++) {
         const square = createGridSquare()
         grid.appendChild(square)
@@ -51,6 +59,13 @@ playButton.addEventListener ('click', function(){
             else {
                 this.classList.add ('clicked')
                 console.log("Hai cliccato il quadratino numero " + (i + 1))
+                counter += 1
+                score.innerHTML = ("Score: " + counter)
+            }
+
+            if (counter == (max - 16)) {
+                win.classList.remove('inactive')
+                win.classList.add('active')
             }
         })
     };
