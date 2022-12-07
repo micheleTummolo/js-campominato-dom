@@ -69,6 +69,7 @@ playButton.addEventListener ('click', function(){
                 console.log("Hai cliccato il quadratino numero " + (i + 1))
                 counter += 1
                 score.innerHTML = ("Score: " + counter)
+                this.classList.add('event-none')
             }
 
             if (counter == (max - 16)) {
