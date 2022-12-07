@@ -1,5 +1,8 @@
 const playButton = document.getElementById('play_button')
 
+let best = 0
+let currentScore
+
 playButton.addEventListener ('click', function(){
 
     let diff = document.getElementById('difficulty').value
@@ -40,8 +43,9 @@ playButton.addEventListener ('click', function(){
 
     grid.classList.remove('event-none')
 
-    let counter = 0;
     let score = document.getElementById('score')
+    let bestScore = document.getElementById('best_score')
+    let counter = 0 
     score.innerHTML = ("Score: " + counter)
     
     for (let i = 0; i < max; i++) {
@@ -54,7 +58,11 @@ playButton.addEventListener ('click', function(){
                 console.log("Hai cliccato una bomba")
                 gameOver.classList.remove('inactive')
                 gameOver.classList.add('active')
-                
+                currentScore = counter
+                if (currentScore > best) {
+                    best = currentScore
+                    bestScore.innerHTML = ("Best score: " + best)
+                }
             }
             else {
                 this.classList.add ('clicked')
@@ -66,9 +74,16 @@ playButton.addEventListener ('click', function(){
             if (counter == (max - 16)) {
                 win.classList.remove('inactive')
                 win.classList.add('active')
+                currentScore = counter
+                if (currentScore > best) {
+                    best = currentScore
+                    bestScore.innerHTML = ("Best score: " + best)
+                }
             }
         })
+        
     };
+
 
     function createGridSquare() {
         const element = document.createElement ('div');

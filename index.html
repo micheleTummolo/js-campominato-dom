@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css">
 
@@ -15,12 +18,13 @@
 
     <header>
         <nav>
-            <select name="difficulty" id="difficulty">
+            <h3 class="diff">Difficulty</h3>
+            <select name="difficulty" id="difficulty" class="button">
                 <option id="easy" value="easy">Easy</option>
                 <option id="medium" value="medium">Medium</option>
                 <option id="hard" value="hard">Hard</option>
             </select>
-            <button id="play_button">Play</button>
+            <button id="play_button" class="button">Play</button>
         </nav>
     </header>
 
@@ -39,6 +43,7 @@
                 </div>
                 <div class="col">
                     <div class="score_container">
+                        <h1 id="best_score">Best score: 0</h1>
                         <h1 id="score">Score: 0</h1>
                     </div>
                 </div>
