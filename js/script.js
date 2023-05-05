@@ -69,9 +69,26 @@ playButton.addEventListener('click', function () {
             }
             else {
                 this.classList.add('clicked')
+                let tot_bomb = 0
                 if (bombs.includes(i + 2)) {
+                    tot_bomb += 1
                     console.log("Bomba a destra")
-                    document.getElementById(i + 1).innerHTML = "1"
+                    document.getElementById(i + 1).innerHTML = tot_bomb
+                }
+                if (bombs.includes(i)) {
+                    tot_bomb += 1
+                    console.log("Bomba a sinistra")
+                    document.getElementById(i + 1).innerHTML = tot_bomb
+                }
+                if (bombs.includes(i + 8)) {
+                    tot_bomb += 1
+                    console.log("Bomba sotto")
+                    document.getElementById(i + 1).innerHTML = tot_bomb
+                }
+                if (bombs.includes(i - 6)) {
+                    tot_bomb += 1
+                    console.log("Bomba sopra")
+                    document.getElementById(i + 1).innerHTML = tot_bomb
                 }
                 console.log("Hai cliccato il quadratino numero " + (i + 1))
                 counter += 1
@@ -96,6 +113,8 @@ playButton.addEventListener('click', function () {
     function createGridSquare() {
         const element = document.createElement('div');
         const content = document.createElement('h2');
+
+        content.classList.add('bomb_true')
 
         element.appendChild(content);
 
