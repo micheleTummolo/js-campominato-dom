@@ -54,6 +54,9 @@ nav {
 .square {
     border: 1px solid black;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .square_easy {
@@ -123,5 +126,5 @@ nav {
 
 .bomb_true {
     text-align: center;
-    font-size: 56px;
+    font-size: 43px;
 }

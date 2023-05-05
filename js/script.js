@@ -11,23 +11,56 @@ playButton.addEventListener('click', function () {
     let grid = document.getElementById('grid');
     let squareType
 
+    let top = 0
+    let bottom = 0
+    let left = 0
+    let right = 0
+
+    let lines = 0
+
+    let first_column = []
+    let last_column = []
+
     grid.innerHTML = ""
 
     if (diff == "easy") {
         max = 100
         squareType = 'square_easy'
+        top = 9
+        bottom = 11
+        left = 0
+        right = 2
+
     }
 
     else if (diff == "medium") {
         max = 81
         squareType = 'square_medium'
+        top = 8
+        bottom = 10
+        left = 0
+        right = 2
     }
     else {
         max = 49
         squareType = 'square_hard'
+        top = 6
+        bottom = 8
+        left = 0
+        right = 2
     }
 
+    lines = Math.sqrt(max)
+
+    for (y = 1; y <= lines; y++) {
+        first_column.push((lines * y) + 1)
+        last_column.push(lines * y)
+    }
+
+    console.log(first_column)
+    console.log(last_column)
     console.log("Numero quadrati: " + max)
+    console.log("Numero righe: " + lines)
 
     let bombs = arrayBomb(1, max)
     console.log(bombs)
@@ -78,22 +111,22 @@ playButton.addEventListener('click', function () {
             else {
                 this.classList.add('clicked')
                 let tot_bomb = 0
-                if (bombs.includes(i + 2)) {
+                if (bombs.includes(i + right) && !last_column.includes(i + 1)) {
                     tot_bomb += 1
                     console.log("Bomba a destra")
                     document.getElementById(i + 1).innerHTML = tot_bomb
                 }
-                if (bombs.includes(i)) {
+                if (bombs.includes(i) && !first_column.includes(i + 1)) {
                     tot_bomb += 1
                     console.log("Bomba a sinistra")
                     document.getElementById(i + 1).innerHTML = tot_bomb
                 }
-                if (bombs.includes(i + 8)) {
+                if (bombs.includes(i + bottom)) {
                     tot_bomb += 1
                     console.log("Bomba sotto")
                     document.getElementById(i + 1).innerHTML = tot_bomb
                 }
-                if (bombs.includes(i - 6)) {
+                if (bombs.includes(i - top)) {
                     tot_bomb += 1
                     console.log("Bomba sopra")
                     document.getElementById(i + 1).innerHTML = tot_bomb
