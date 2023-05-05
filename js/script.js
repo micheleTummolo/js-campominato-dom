@@ -50,12 +50,20 @@ playButton.addEventListener('click', function () {
 
     for (let i = 0; i < max; i++) {
         const square = createGridSquare()
+
+        square.setAttribute("id", "square_" + (i + 1))
+
         grid.appendChild(square)
         let h2 = document.getElementsByTagName('h2')
         h2[i].setAttribute("id", i + 1)
         /* console.log(h2[i].id) */
         square.addEventListener('click', function () {
             if (bombs.includes(i + 1)) {
+                for (let j = 0; j < max; j++) {
+                    if (bombs.includes(j + 1)) {
+                        document.getElementById("square_" + (j + 1)).classList.add('red')
+                    }
+                }
                 this.classList.add('red')
                 grid.classList.add('event-none')
                 console.log("Hai cliccato una bomba")
@@ -108,7 +116,6 @@ playButton.addEventListener('click', function () {
         })
 
     };
-
 
     function createGridSquare() {
         const element = document.createElement('div');
