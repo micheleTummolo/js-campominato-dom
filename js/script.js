@@ -53,7 +53,7 @@ playButton.addEventListener('click', function () {
         grid.appendChild(square)
         let h2 = document.getElementsByTagName('h2')
         h2[i].setAttribute("id", i + 1)
-        console.log(h2[i].id)
+        /* console.log(h2[i].id) */
         square.addEventListener('click', function () {
             if (bombs.includes(i + 1)) {
                 this.classList.add('red')
@@ -69,6 +69,10 @@ playButton.addEventListener('click', function () {
             }
             else {
                 this.classList.add('clicked')
+                if (bombs.includes(i + 2)) {
+                    console.log("Bomba a destra")
+                    document.getElementById(i + 1).innerHTML = "1"
+                }
                 console.log("Hai cliccato il quadratino numero " + (i + 1))
                 counter += 1
                 score.innerHTML = ("Score: " + counter)
