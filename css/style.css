@@ -8,8 +8,10 @@
 body {
     /* background-color: #7fffd4; */
     background-image: url(../img/wallpaper.jpg);
-    background-size: 100vw 100vh;
+    background-size: cover;
     background-repeat: no-repeat;
+    height: 100vh;
+    background-position: right;
 }
 
 nav {
@@ -114,6 +116,7 @@ nav {
     font-size: 3rem;
     font-weight: 900;
     color: red;
+    text-align: center;
 }
 
 #win_text {
@@ -128,3 +131,21 @@ nav {
     text-align: center;
     font-size: 43px;
 }
+
+@media screen and (max-width: 460px) {
+    .row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .col_grid {
+        background-color: #ffffff30;
+        max-width: 300px;
+        height: 300px;
+        position: relative;
+        margin-bottom: 1rem;
+    }
+}
+
+@media screen and (min-width: 461px) {}
