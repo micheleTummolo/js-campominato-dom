@@ -141,11 +141,13 @@ nav {
 
     .col_grid {
         background-color: #ffffff30;
-        max-width: 300px;
-        height: 300px;
+        max-width: 340px;
+        height: 340px;
         position: relative;
         margin-bottom: 1rem;
     }
-}
 
-@media screen and (min-width: 461px) {}
+    .bomb_true {
+        font-size: 30px;
+    }
+}
